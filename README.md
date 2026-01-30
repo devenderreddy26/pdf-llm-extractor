@@ -32,3 +32,19 @@ Required by `pdf2image` to convert PDF pages to images.
    ```bash
    git clone [https://github.com/YOUR_USERNAME/pdf-llm-extractor.git](https://github.com/YOUR_USERNAME/pdf-llm-extractor.git)
    cd pdf-llm-extractor
+
+
+How It Works
+Ingestion: The script opens the PDF using pymupdf.
+
+Analysis: It checks for form widgets or low text density (indicating a scan).
+
+Extraction:
+
+Forms: Extracts widget values and inserts them into the text stream at their visual coordinates.
+
+Scans: Converts pages to images and runs Tesseract OCR.
+
+Standard: Extracts text normally.
+
+Query: Sends the combined context to GPT-4o to answer your questions.
